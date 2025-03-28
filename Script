@@ -1,17 +1,62 @@
-local ScreenGui = Instance.new("ScreenGui")
-local ImageLabel = Instance.new("ImageLabel")
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
 
-ScreenGui.Parent = game.CoreGui -- Adiciona a GUI à interface do jogo
+local player = Players.LocalPlayer
+local humanoid = nil
+local jumping = false
 
-ImageLabel.Parent = ScreenGui
-ImageLabel.Size = UDim2.new(0.5, 0, 0.5, 0) -- 50% da tela
-ImageLabel.Position = UDim2.new(0.25, 0, 0.25, 0) -- Centraliza
-ImageLabel.BackgroundTransparency = 1 -- Sem fundo
+-- Criar GUI para mostrar o texto RGB
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
 
--- COLOQUE A URL DA IMAGEM AQUI
-ImageLabel.Image = "https://uploaddeimagens.com.br/imagens/b8ZoQ5k/image.png" 
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Size = UDim2.new(1, 0, 0.1, 0)
+textLabel.Position = UDim2.new(0, 0, 0.1, 0)
+textLabel.Text = "H3X B4 PUNINDO OS IMPUROS"
+textLabel.Font = Enum.Font.SourceSansBold
+textLabel.TextScaled = true
+textLabel.BackgroundTransparency = 1
+textLabel.TextStrokeTransparency = 0
+textLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
 
--- Remove ao reiniciar
-game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
-    ScreenGui:Destroy()
+-- Função para efeito RGB no texto
+task.spawn(function()
+    while true do
+        for i = 0, 1, 0.01 do
+            textLabel.TextColor3 = Color3.fromHSV(i, 1, 1)
+            task.wait(0.05)
+        end
+    end
 end)
+
+-- Função para ativar/desativar o loop de pulo
+local function toggleJump()
+    humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+    if humanoid then
+        jumping = not jumping
+        while jumping do
+            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            task.wait(0.3) -- Tempo entre pulos
+        end
+    end
+end
+
+-- Monitorar mensagens do chat
+local function onChatMessage(message)
+    if message == "!Ghost_33" then
+        jumping = false
+        screenGui:Destroy()
+    elseif not jumping then
+        toggleJump()
+    end
+end
+
+-- Detectar mensagens no chat
+local function onPlayerChatted(player, message)
+    if player == Players.LocalPlayer then
+        onChatMessage(message)
+    end
+end
+
+Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
