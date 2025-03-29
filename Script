@@ -352,7 +352,7 @@ openGuiButton.Parent = Tab7
 
 -- Função para executar o script ao clicar no botão "Abrir GUI"
 openGuiButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/HDZmiDw3", true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ghost162626/Script/refs/heads/main/Tab7", true))()
 end)
 
 -- Criando a nova aba "Puxar Partes" e o botão "Admin comands"
