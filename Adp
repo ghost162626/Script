@@ -1,0 +1,84 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV2/refs/heads/main/Source.luau"))()
+
+-- Criando a janela
+local Window = MakeWindow({Title = "H3x B4 Hub | Admin"})
+
+-- Adicionando o botão de minimizar
+AddMinimizeButton({
+    Icon = "10734897102"
+})
+
+-- Notificação de carregamento do script
+NewNotify({
+    Title = "Notification",
+    Description = "Seja bem-vindo Admin ☠️😶",
+    Time = 3
+})
+
+-- Tabela para armazenar os jogadores manualmente
+local playerPlans = {
+    {Name = "ghost_33828936", Plan = "DONO"},
+    {Name = "alexsanderxx10", Plan = "SUB_DONO"},
+    {Name = "Blmc294", Plan = "Admin"}
+}
+
+-- Criando as abas
+local Tab1 = NewTab({Name = "🔎 White list ", Icon = "10723407389"})
+local Tab2 = NewTab({Name = "✍️Nome adm ", Icon = "10723407389"})
+
+-- Adicionando um título na aba White list
+AddTextLabel(Tab1, {
+    Name = "Players e os planos ✍️"
+})
+
+-- Criando a lista de jogadores na aba White list
+for _, player in ipairs(playerPlans) do
+    AddTextLabel(Tab1, {
+        Name = player.Name .. " < | > " .. player.Plan
+    })
+end
+
+-- Variável para controlar o estado do botão
+local adminNomeAtivo = false
+
+-- Função para executar a animação do nome admin
+local function ativarNomeAdmin()
+    local nomes = {"H", "H3", "H3X", "H3X-", "H3X-A", "H3X-AD", "H3X-ADM", "H3X-ADMI", "H3X-ADMIN", "H3X-ADMI", "H3X-ADM", "H3X-AD", "H3X-A", "H3X-", "H3X", "H3", "H", ""}
+    while adminNomeAtivo do
+        for _, nome in ipairs(nomes) do
+            if not adminNomeAtivo then return end
+            local args = {[1] = "RolePlayName", [2] = nome}
+            game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
+            wait(0.3)
+        end
+    end
+end
+
+-- Função para desativar o nome admin
+local function desativarNomeAdmin()
+    local args = {[1] = "RolePlayName", [2] = ""}
+    game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
+end
+
+-- Adicionando um botão na aba Nome adm
+AddButton(Tab2, {
+    Name = "Nome Admin",
+    Callback = function()
+        adminNomeAtivo = not adminNomeAtivo
+        if adminNomeAtivo then
+            NewNotify({
+                Title = "Admin Nome",
+                Description = "Nome Admin Ativado!",
+                Time = 3
+            })
+            ativarNomeAdmin()
+        else
+            NewNotify({
+                Title = "Admin Nome",
+                Description = "Nome Admin Desativado!",
+                Time = 3
+            })
+            desativarNomeAdmin()
+        end
+    end
+})
