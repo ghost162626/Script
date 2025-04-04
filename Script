@@ -361,6 +361,114 @@ Sound.Volume = 1
 Sound:Play()
     end 
 })
+-- Botão para tocar outro áudio personalizado
+AddButton(Tab9, { 
+    Name = "🔊 Audio NOTIFICAÇÃO TELEFONE", 
+    Callback = function() 
+        local args = {
+    [1] = workspace,
+    [2] = 6073491164,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Gu1nSound1s"):FireServer(unpack(args))
+local Sound = Instance.new("Sound")
+Sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
+Sound.SoundId = "rbxassetid://" .. tostring(args[2]) -- Usa o mesmo ID que foi enviado
+Sound.Volume = 1
+Sound:Play()
+    end 
+})
+-- Botão para tocar outro áudio personalizado
+AddButton(Tab9, { 
+    Name = "🔊 Audio LOUD JUMPSCARE)", 
+    Callback = function() 
+        local args = {
+    [1] = workspace,
+    [2] = 7236490488,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Gu1nSound1s"):FireServer(unpack(args))
+local Sound = Instance.new("Sound")
+Sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
+Sound.SoundId = "rbxassetid://" .. tostring(args[2]) -- Usa o mesmo ID que foi enviado
+Sound.Volume = 1
+Sound:Play()
+    end 
+})
+-- Botão para tocar outro áudio personalizado
+AddButton(Tab9, { 
+    Name = "🔊 Audio Risada do tinhoso ", 
+    Callback = function() 
+        local args = {
+    [1] = workspace,
+    [2] = 7649721525,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Gu1nSound1s"):FireServer(unpack(args))
+local Sound = Instance.new("Sound")
+Sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
+Sound.SoundId = "rbxassetid://" .. tostring(args[2]) -- Usa o mesmo ID que foi enviado
+Sound.Volume = 1
+Sound:Play()
+    end 
+})
+-- Botão para tocar outro áudio personalizado
+AddButton(Tab9, { 
+    Name = "🔊 Audio Sirene", 
+    Callback = function() 
+        local args = {
+    [1] = workspace,
+    [2] = 224677815,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Gu1nSound1s"):FireServer(unpack(args))
+local Sound = Instance.new("Sound")
+Sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
+Sound.SoundId = "rbxassetid://" .. tostring(args[2]) -- Usa o mesmo ID que foi enviado
+Sound.Volume = 1
+Sound:Play()
+    end 
+})
+-- Botão para tocar outro áudio personalizado
+AddButton(Tab9, { 
+    Name = "🔊 Audio SIRENE NUCLEAR", 
+    Callback = function() 
+        local args = {
+    [1] = workspace,
+    [2] = 675587093,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Gu1nSound1s"):FireServer(unpack(args))
+local Sound = Instance.new("Sound")
+Sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
+Sound.SoundId = "rbxassetid://" .. tostring(args[2]) -- Usa o mesmo ID que foi enviado
+Sound.Volume = 1
+Sound:Play()
+    end 
+})
+-- Botão para tocar outro áudio personalizado
+AddButton(Tab9, { 
+    Name = "🔊 Audio Risada do john doe)", 
+    Callback = function() 
+        local args = {
+    [1] = workspace,
+    [2] = 7854285068,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Gu1nSound1s"):FireServer(unpack(args))
+local Sound = Instance.new("Sound")
+Sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
+Sound.SoundId = "rbxassetid://" .. tostring(args[2]) -- Usa o mesmo ID que foi enviado
+Sound.Volume = 1
+Sound:Play()
+    end 
+})
 -- Criando a nova aba "Puxar Partes" e o botão "Abrir GUI"
 local openGuiButton = Instance.new("TextButton")
 openGuiButton.Size = UDim2.new(0, 200, 0, 40)
