@@ -42,6 +42,13 @@ end
 local adminNomeAtivo = false
 
 -- Função para executar a animação do nome admin
+local args = {
+    [1] = "PickingRPNameColor",
+    [2] = Color3.fromRGB(255, 0, 0) -- Vermelho
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eColo1r"):FireServer(unpack(args))
+
 local function ativarNomeAdmin()
     local nomes = {"H", "H3", "H3X", "H3X-", "H3X-A", "H3X-AD", "H3X-ADM", "H3X-ADMI", "H3X-ADMIN", "H3X-ADMI", "H3X-ADM", "H3X-AD", "H3X-A", "H3X-", "H3X", "H3", "H", ""}
     while adminNomeAtivo do
