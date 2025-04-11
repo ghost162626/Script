@@ -496,3 +496,27 @@ ADMButton.Parent = Tab8
 ADMButton.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))()
 end)
+
+-- Criando o EditText (campo de texto) na aba de carros
+local musicTextBox = Instance.new("TextBox")
+musicTextBox.Size = UDim2.new(1, -20, 0, 40)
+musicTextBox.Position = UDim2.new(0, 10, 0, 60)  -- Colocado abaixo do botão do caminhão
+musicTextBox.PlaceholderText = "Digite o ID da música"
+musicTextBox.Parent = Tab6
+
+-- Criando o botão "por música" na aba de carros
+local musicButton = Instance.new("TextButton")
+musicButton.Size = UDim2.new(0, 200, 0, 40)
+musicButton.Position = UDim2.new(0, 10, 0, 110)  -- Abaixo do campo de texto
+musicButton.Text = "por música"
+musicButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+musicButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+musicButton.Parent = Tab6
+
+-- Função para ser executada ao clicar no botão "por música"
+musicButton.MouseButton1Click:Connect(function()
+    local songName = musicTextBox.Text
+    print("Música selecionada: " .. songName)
+    -- Aqui você pode adicionar a lógica para manipular a música com base no nome digitado
+    -- Exemplo: Tocar uma música com o nome fornecido ou alguma outra ação
+end)
