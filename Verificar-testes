@@ -26,10 +26,20 @@ local Tab7 = NewTab({Name = "💯Puxar Partes💯", Icon = "10723407389"}) -- No
 local Tab8 = NewTab({Name = "🔰Admin comands🔰", Icon = "10723407389"}) -- Nova aba "admin"
 local Tab9 = NewTab({Name = "🔊Audio al🔊l", Icon = "10723407389"}) -- Nova aba "Audio all"
 local Tab10 = NewTab({Name = "🚩teleporte🚩", Icon = "10723407389"})
+local Tab11 = NewTab({Name = "🔍placas🔎", Icon = "10723407389"})
+
 
 -- Aba Universal (Tab1)
 local TextLabel1 = AddTextLabel(Tab1, {
-    Name = "EM BREVE"
+    Name = "By ghost"
+})
+
+local Button1 = AddButton(Tab1, {
+    Name = "testando arma", 
+    Callback = function()
+        -- Cole seu código aqui
+
+    end
 })
 
 -- Adicionando o botão "H3x Invadindo ☠️☠️☠️" na aba de carros
@@ -40,125 +50,6 @@ truckButton.Text = "H3x Invadindo ☠️☠️☠️"
 truckButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 truckButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 truckButton.Parent = Tab6
-
-local TextLabel1 = AddTextLabel(Tab6, {
-    Name = "Musica id (precisa de gamepass de música)"
-})
-
--- Criação do TextBox
-local musicBox = Instance.new("TextBox")
-musicBox.Name = "MusicIdBox"
-musicBox.Parent = Tab6
-musicBox.Size = UDim2.new(0, 200, 0, 40)
-musicBox.Position = UDim2.new(0, 10, 0, 10)
-musicBox.PlaceholderText = "Escreva o ID da música aqui"
-musicBox.Text = "" -- Começa vazio
-musicBox.TextScaled = true
-musicBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-musicBox.TextColor3 = Color3.new(1, 1, 1)
-musicBox.BorderSizePixel = 0
-
--- Criação do Botão
-local playButton = Instance.new("TextButton")
-playButton.Parent = Tab6
-playButton.Size = UDim2.new(0, 200, 0, 40)
-playButton.Position = UDim2.new(0, 10, 0, 60)
-playButton.Text = "Play"
-playButton.TextScaled = true
-playButton.BackgroundColor3 = Color3.fromRGB(30, 150, 30)
-playButton.TextColor3 = Color3.new(1, 1, 1)
-playButton.BorderSizePixel = 0
-
--- Função ao clicar no botão
-playButton.MouseButton1Click:Connect(function()
-	local musicId = musicBox.Text
-	if musicId ~= "" then
-		local args = {
-			[1] = "PickingCarMusicText",
-			[2] = musicId
-		}
-
-		game:GetService("ReplicatedStorage").RE:FindFirstChild("1Player1sCa1r"):FireServer(unpack(args))
-	end
-end)
-
--- UIListLayout (caso ainda não tenha no Tab6)
-local layout = Instance.new("UIListLayout")
-layout.Parent = Tab6
-layout.SortOrder = Enum.SortOrder.LayoutOrder
-layout.Padding = UDim.new(0, 5)
-
--- Dropdown principal
-local dropdown = Instance.new("TextButton")
-dropdown.Name = "Dropdown"
-dropdown.Parent = Tab6
-dropdown.Size = UDim2.new(0.8, 0, 0, 30) -- 80% da largura
-dropdown.Position = UDim2.new(0.1, 0, 0, 0) -- Centraliza horizontalmente
-dropdown.Text = "<   Selecione a música   >"
-dropdown.TextScaled = true
-dropdown.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-dropdown.BackgroundTransparency = 0.5
-dropdown.TextColor3 = Color3.new(1, 1, 1)
-dropdown.BorderSizePixel = 0
-dropdown.LayoutOrder = 1
-
--- Frame com opções
-local optionsFrame = Instance.new("Frame")
-optionsFrame.Parent = dropdown
-optionsFrame.Position = UDim2.new(0, 0, 1, 0)
-optionsFrame.Size = UDim2.new(1, 0, 0, 0)
-optionsFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-optionsFrame.BackgroundTransparency = 0.5
-optionsFrame.Visible = false
-optionsFrame.ClipsDescendants = true
-
--- Lista de opções
-local layout2 = Instance.new("UIListLayout")
-layout2.Parent = optionsFrame
-layout2.SortOrder = Enum.SortOrder.LayoutOrder
-layout2.Padding = UDim.new(0, 2)
-
-layout2:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-	optionsFrame.Size = UDim2.new(1, 0, 0, layout2.AbsoluteContentSize.Y)
-end)
-
--- Lista de músicas
-local musicList = {
-    {Name = "Palhação do Mal", ID = "72591334498716"},
-    {Name = "Explosão Fantasma", ID = "119"},
-    {Name = "Batida Sombria", ID = "111"}
-}
-
--- Criar opções
-for _, music in ipairs(musicList) do
-	local opt = Instance.new("TextButton")
-	opt.Parent = optionsFrame
-	opt.Size = UDim2.new(1, 0, 0, 25)
-	opt.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	opt.BackgroundTransparency = 0.4
-	opt.Text = music.Name
-	opt.TextScaled = true
-	opt.TextColor3 = Color3.new(1, 1, 1)
-	opt.BorderSizePixel = 0
-
-	opt.MouseButton1Click:Connect(function()
-		dropdown.Text = music.Name
-		optionsFrame.Visible = false
-
-		-- Enviar ID
-		local args = {
-			[1] = "PickingCarMusicText",
-			[2] = music.ID
-		}
-
-		game:GetService("ReplicatedStorage").RE:FindFirstChild("1Player1sCa1r"):FireServer(unpack(args))
-	end)
-end
-
--- Clique abre/fecha dropdown
-dropdown.MouseButton1Click:Connect(function()
-	optionsFrame.Visible = not optionsFrame.Visible
-end)
 
 -- Função para ser executada ao clicar no botão
 truckButton.MouseButton1Click:Connect(function()
@@ -677,5 +568,57 @@ if player.Character then
     teleport()
 end
 player.CharacterAdded:Connect(teleport)
+    end
+})
+
+local Button1 = AddButton(Tab11, {
+    Name = "placa-1(H3X INVADINDO KK", 
+    Callback = function()
+        local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Função para teleportar
+local function teleportar()
+    local char = LocalPlayer.Character
+    if char and char:FindFirstChild("HumanoidRootPart") then
+        char:MoveTo(Vector3.new(-242.42, 66.00, -534.98))
+    else
+        warn("Personagem não carregado.")
+    end
+end
+
+-- Teleporta ao carregar o personagem
+if LocalPlayer.Character then
+    teleportar()
+end
+
+LocalPlayer.CharacterAdded:Connect(function()
+    teleportar()
+end)
+wait(0.3)
+local args = {
+    [1] = "CommercialBackGround";
+    [2] = 3;
+    [3] = Color3.new(0, 0, 0);
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE", 9e9):WaitForChild("1Cemeter1y", 9e9):FireServer(unpack(args))
+wait()
+local args = {
+    [1] = "ReturningCommercialWords";
+    [2] = 3;
+    [4] = "H3X INVADINDO KK";
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE", 9e9):WaitForChild("1Cemeter1y", 9e9):FireServer(unpack(args))
+wait()
+local args = {
+    [1] = "CommercialWordColor";
+    [2] = 3;
+    [3] = Color3.new(1, 0, 0.235338);
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE", 9e9):WaitForChild("1Cemeter1y", 9e9):FireServer(unpack(args))
+
     end
 })
