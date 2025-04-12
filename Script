@@ -22,13 +22,25 @@ local Tab3 = NewTab({Name = "✍️Creditos✍️", Icon = "10723407389"})
 local Tab4 = NewTab({Name = "🥋Skin🥋", Icon = "10723407389"})
 local Tab5 = NewTab({Name = "☠️ nome all ☠️", Icon = "10723407389"}) -- New Tab for "nome all"
 local Tab6 = NewTab({Name = "🚗carros🚗", Icon = "10723407389"}) -- Nova aba de carros
-local Tab7 = NewTab({Name = "Puxar Partes", Icon = "10723407389"}) -- Nova aba "Puxar Partes"
-local Tab8 = NewTab({Name = "Admin comands", Icon = "10723407389"}) -- Nova aba "admin"
-local Tab9 = NewTab({Name = "Audio all", Icon = "10723407389"}) -- Nova aba "Audio all"
+local Tab7 = NewTab({Name = "💯Puxar Partes💯", Icon = "10723407389"}) -- Nova aba "Puxar Partes"
+local Tab8 = NewTab({Name = "🔰Admin comands🔰", Icon = "10723407389"}) -- Nova aba "admin"
+local Tab9 = NewTab({Name = "🔊Audio al🔊l", Icon = "10723407389"}) -- Nova aba "Audio all"
+local Tab10 = NewTab({Name = "🚩teleporte🚩", Icon = "10723407389"})
+local Tab11 = NewTab({Name = "placas", Icon = "10723407389"})
+local Tab12 = NewTab({Name = "GAMEPASS FREE", Icon = "10723407389"})
+
 
 -- Aba Universal (Tab1)
 local TextLabel1 = AddTextLabel(Tab1, {
-    Name = "EM BREVE"
+    Name = "By ghost"
+})
+
+local Button1 = AddButton(Tab1, {
+    Name = "testando arma", 
+    Callback = function()
+        -- Cole seu código aqui
+
+    end
 })
 
 -- Adicionando o botão "H3x Invadindo ☠️☠️☠️" na aba de carros
@@ -496,6 +508,122 @@ ADMButton.Parent = Tab8
 ADMButton.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))()
 end)
+local Button10 = AddButton(Tab10, {
+    Name = "inicio (Obby)", 
+    Callback = function()
+        -- Defina os argumentos
+        local player = game:GetService("Players").LocalPlayer
+
+local function teleport()
+    local character = player.Character or player.CharacterAdded:Wait()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        local targetPosition = Vector3.new(-42.32, 1.74, -22.57)
+        character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+    end
+end
+
+-- Espera o personagem carregar antes de teleportar
+if player.Character then
+    teleport()
+end
+player.CharacterAdded:Connect(teleport)
+    end
+})
+local Button10 = AddButton(Tab10, {
+    Name = "Escola", 
+    Callback = function()
+        -- Defina os argumentos
+        local player = game:GetService("Players").LocalPlayer
+
+local function teleport()
+    local character = player.Character or player.CharacterAdded:Wait()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        local targetPosition = Vector3.new(-272.41, 3.40, 211.37)
+        character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+    end
+end
+
+-- Espera o personagem carregar antes de teleportar
+if player.Character then
+    teleport()
+end
+player.CharacterAdded:Connect(teleport)
+    end
+})
+local Button10 = AddButton(Tab10, {
+    Name = "Hospital", 
+    Callback = function()
+        -- Defina os argumentos
+        local player = game:GetService("Players").LocalPlayer
+
+local function teleport()
+    local character = player.Character or player.CharacterAdded:Wait()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        local targetPosition = Vector3.new(-305.36, 3.40, 2.29)
+        character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+    end
+end
+
+-- Espera o personagem carregar antes de teleportar
+if player.Character then
+    teleport()
+end
+player.CharacterAdded:Connect(teleport)
+    end
+})
+
+local Button1 = AddButton(Tab11, {
+    Name = "placa-1(H3X INVADINDO KK", 
+    Callback = function()
+        local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Função para teleportar
+local function teleportar()
+    local char = LocalPlayer.Character
+    if char and char:FindFirstChild("HumanoidRootPart") then
+        char:MoveTo(Vector3.new(-242.42, 66.00, -534.98))
+    else
+        warn("Personagem não carregado.")
+    end
+end
+
+-- Teleporta ao carregar o personagem
+if LocalPlayer.Character then
+    teleportar()
+end
+
+LocalPlayer.CharacterAdded:Connect(function()
+    teleportar()
+end)
+wait(0.3)
+local args = {
+    [1] = "CommercialBackGround";
+    [2] = 3;
+    [3] = Color3.new(0, 0, 0);
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE", 9e9):WaitForChild("1Cemeter1y", 9e9):FireServer(unpack(args))
+wait()
+local args = {
+    [1] = "ReturningCommercialWords";
+    [2] = 3;
+    [4] = "H3X INVADINDO KK";
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE", 9e9):WaitForChild("1Cemeter1y", 9e9):FireServer(unpack(args))
+wait()
+local args = {
+    [1] = "CommercialWordColor";
+    [2] = 3;
+    [3] = Color3.new(1, 0, 0.235338);
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE", 9e9):WaitForChild("1Cemeter1y", 9e9):FireServer(unpack(args))
+
+    end
+})
+
 
 -- Criando o EditText (campo de texto) na aba de carros
 local musicTextBox = Instance.new("TextBox")
@@ -520,3 +648,18 @@ musicButton.MouseButton1Click:Connect(function()
     -- Aqui você pode adicionar a lógica para manipular a música com base no nome digitado
     -- Exemplo: Tocar uma música com o nome fornecido ou alguma outra ação
 end)
+
+
+
+-- Aba FREE GAMEPASS (Tab12)
+local TextLabel1 = AddTextLabel(Tab12, {
+    Name = "Vip Free"
+})
+
+local Button1 = AddButton(Tab12, {
+    Name = "Vip free", 
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-free-gamepass-works-in-some-games-23863"))()
+
+    end
+})
