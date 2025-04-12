@@ -27,7 +27,7 @@ local Tab8 = NewTab({Name = "🔰Admin comands🔰", Icon = "10723407389"}) -- N
 local Tab9 = NewTab({Name = "🔊Audio al🔊l", Icon = "10723407389"}) -- Nova aba "Audio all"
 local Tab10 = NewTab({Name = "🚩teleporte🚩", Icon = "10723407389"})
 local Tab11 = NewTab({Name = "🔍placas🔎", Icon = "10723407389"})
-
+local Tab12 = NewTab({Name = "Vip Free", Icon = "10723407389"})
 
 -- Aba Universal (Tab1)
 local TextLabel1 = AddTextLabel(Tab1, {
@@ -619,6 +619,19 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("RE", 9e9):WaitForChild("1Cemeter1y", 9e9):FireServer(unpack(args))
+
+    end
+})
+
+-- Aba FREE GAMEPASS (Tab12)
+local TextLabel1 = AddTextLabel(Tab12, {
+    Name = "Vip Free"
+})
+
+local Button1 = AddButton(Tab12, {
+    Name = "Vip free", 
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-free-gamepass-works-in-some-games-23863"))()
 
     end
 })
